@@ -43,5 +43,5 @@ sudo docker run hello-world
 
 sudo apt-get upgrade docker-engine -y
 
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker ${USER}
 
