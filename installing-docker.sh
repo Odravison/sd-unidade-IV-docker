@@ -14,7 +14,7 @@ else
 fi
 
 #E finalmente, criando o arquivo e adicionando um valor dentro dele.
-sudo echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
+sudo echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee --append /etc/apt/sources.list.d/docker.list
 
 
 
@@ -42,3 +42,6 @@ echo "DOCKER INSTALADO COM SUCESSO, INICIANDO TESTES ..."
 sudo docker run hello-world
 
 sudo apt-get upgrade docker-engine -y
+
+sudo usermod -aG docker ubuntu
+
