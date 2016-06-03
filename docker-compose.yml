@@ -1,0 +1,19 @@
+haproxy:
+    image: tutum/haproxy
+    links:
+        - web
+    environment:
+        - BACKEND_PORT=8080
+nginx:
+    image: sd/nginx:2.0
+    ports:
+        - "80:80"
+    links:
+        - haproxy 
+web:
+  image: getipapp:1.0
+  command: node sdproject.js
+  volumes:
+    - "sdproject.js:/usr/src/app"
+  ports:
+    - "8080"
